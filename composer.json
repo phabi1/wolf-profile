@@ -1,9 +1,9 @@
 {
-    "name": "root/wolf-profile",
+    "name": "wolf/profile",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Root\\WolfProfile\\": "inc/"
+            "Wolf\\Profile\\": "inc/"
         }
     },
     "authors": [

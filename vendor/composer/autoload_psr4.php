@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Root\\WolfProfile\\' => array($baseDir . '/inc'),
+    'Wolf\\Profile\\' => array($baseDir . '/inc'),
 );

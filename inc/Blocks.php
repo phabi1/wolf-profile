@@ -1,6 +1,6 @@
 <?php
 
-namespace Wolf\Event;
+namespace Wolf\Profile;
 
 class Blocks
 {
