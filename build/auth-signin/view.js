@@ -1,0 +1,1 @@
+console.log("Hello World! (from wolf-profile-auth-signin block)");
