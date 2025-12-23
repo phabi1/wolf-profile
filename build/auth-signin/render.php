@@ -10,21 +10,18 @@
  *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
+
+use Wolf\Core\DependencyInjection\Container;
+
+/**
+ * @var \Wolf\Forms\Form\FormManager $formManager
+ */
+$formManager = Container::getInstance()->get('wolf-forms.form.manager');
+$signinForm = $formManager->get('wolf-profile.form.signin');
+
 ?>
+
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<div>
-		<div>
-			<input />
-		</div>
-		<div>
-			<input />
-			<div>
-				<a href="/password-reset">Forgot your password?</a>
-			</div>
-		</div>
-		<div>
-			<button>Sign In</button>
-		</div>
-	</div>
+	<?php echo $signinForm->getForm(); ?>
 	<p>Don't have an account? <a href="/signup">Sign Up</a></p>
 </div>

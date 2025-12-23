@@ -7,8 +7,37 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-wolf-profile-auth-signup {
-  background-color: #21759b;
+.wp-block-wolf-profile-auth-signup .form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.wp-block-wolf-profile-auth-signup .form .form-group {
+  margin-bottom: 15px;
+}
+.wp-block-wolf-profile-auth-signup .form .form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.wp-block-wolf-profile-auth-signup .form input.form-control {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wp-block-wolf-profile-auth-signup .form button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
   color: #fff;
-  padding: 2px;
+  background-color: #0073aa;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
 }

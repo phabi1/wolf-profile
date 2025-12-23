@@ -3,13 +3,14 @@
 namespace Wolf\Profile\Form;
 
 use Wolf\Forms\Form\AbstractForm;
-use Wolf\Forms\Form\FormResult;
+use Wolf\Forms\Form\FormState;
 
 class PasswordForgotForm extends AbstractForm
 {
-    public function getForm()
+    public function getForm(FormState $state)
     {
         return '<form method="post">
+        <input type="hidden" name="wolf_forms_form_id" value="wolf-profile.form.password_forgot">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" class="form-control" required>
@@ -20,23 +21,23 @@ class PasswordForgotForm extends AbstractForm
         </form>';
     }
 
-    public function validateForm($data) {
-        $errors = [];
+    public function validateForm(FormState $state)
+    {
+        $values = $state->getValues();
 
-        if (empty($data['email'])) {
-            $errors['email'] = 'Email is required.';
-        } elseif (!is_email($data['email'])) {
-            $errors['email'] = 'Invalid email format.';
-        } elseif (!email_exists($data['email'])) {
-            $errors['email'] = 'No user found with this email.';
+        if (empty($values['email'])) {
+            $state->setError('email', 'Email is required.');
+        } elseif (!is_email($values['email'])) {
+            $state->setError('email', 'Invalid email format.');
+        } elseif (!email_exists($values['email'])) {
+            $state->setError('email', 'No user found with this email.');
         }
-
-        return new FormResult(empty($errors), $errors);
     }
 
-    public function submitForm($data)
+    public function submitForm(FormState $state)
     {
-        $user = get_user_by('email', $data['email']);
+        $values = $state->getValues();
+        $user = get_user_by('email', $values['email']);
         if ($user) {
             $reset_key = get_password_reset_key($user);
             $reset_link = add_query_arg([
